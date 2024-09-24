@@ -1,2 +1,2 @@
-# Infoestudante do Paiget
-Uma platarforma profissional e moderna para os estudantes do Paiget. 😎
+# Infoget do Paiget
+Uma platarforma profissional e moderna para os estudantes, professores e trabalhadores do Paiget. 😎
