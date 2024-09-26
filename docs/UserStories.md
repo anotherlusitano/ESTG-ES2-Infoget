@@ -1,0 +1,16 @@
+- Como aluno, quero que os serviços acadêmicos registem-me no Infoget.
+- Como aluno, quero poder fazer login no Infoget.
+- Como aluno, quero visualizar as disciplinas que fazem parte do meu curso.
+- Como aluno, quero poder ver qual professor leciona cada disciplina do meu curso.
+- Como aluno, quero poder consultar minhas notas para saber se fui aprovado ou não.
+- Como aluno, quero acessar o calendário escolar para saber quando as aulas começam.
+- Como professor, quero que os serviços acadêmicos me registem no Infoget.
+- Como professor, quero poder fazer login no Infoget.
+- Como professor, quero ver a lista de disciplinas que eu leciono.
+- Como professor, quero ver a lista dos meus alunos.
+- Como professor, quero poder atribuir notas aos meus alunos.
+- Como professor, quero consultar o calendário escolar para saber quando as aulas começam.
+- Como membro dos serviços acadêmicos, quero registar alunos e professores no Infoget.
+- Como membro dos serviços acadêmicos, quero atribuir disciplinas aos cursos.
+- Como membro dos serviços acadêmicos, quero vincular professores às disciplinas.
+- Como membro dos serviços acadêmicos, quero associar alunos aos cursos.
