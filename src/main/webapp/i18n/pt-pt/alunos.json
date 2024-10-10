@@ -1,0 +1,28 @@
+{
+  "infogetApp": {
+    "alunos": {
+      "home": {
+        "title": "Alunos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Criar novo(a) Alunos",
+        "createOrEditLabel": "Criar ou editar Alunos",
+        "notFound": "Nenhum Alunos encontrado"
+      },
+      "created": "Um novo Alunos foi criado com o identificador {{ param }}",
+      "updated": "Alunos com identificador {{ param }} foi actualizado",
+      "deleted": "Alunos com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Alunos {{ id }}?"
+      },
+      "detail": {
+        "title": "Alunos"
+      },
+      "id": "ID",
+      "nomealuno": "Nomealuno",
+      "email": "Email",
+      "password": "Password",
+      "notas": "Notas",
+      "cursos": "Cursos"
+    }
+  }
+}

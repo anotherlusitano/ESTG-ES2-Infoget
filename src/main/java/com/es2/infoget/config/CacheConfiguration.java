@@ -50,6 +50,19 @@ public class CacheConfiguration {
             createCache(cm, com.es2.infoget.domain.User.class.getName());
             createCache(cm, com.es2.infoget.domain.Authority.class.getName());
             createCache(cm, com.es2.infoget.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.es2.infoget.domain.Secretarios.class.getName());
+            createCache(cm, com.es2.infoget.domain.Cursos.class.getName());
+            createCache(cm, com.es2.infoget.domain.Cursos.class.getName() + ".alunos");
+            createCache(cm, com.es2.infoget.domain.Cursos.class.getName() + ".cursoDisciplinas");
+            createCache(cm, com.es2.infoget.domain.CursoDisciplina.class.getName());
+            createCache(cm, com.es2.infoget.domain.Disciplinas.class.getName());
+            createCache(cm, com.es2.infoget.domain.Disciplinas.class.getName() + ".cursoDisciplinas");
+            createCache(cm, com.es2.infoget.domain.Disciplinas.class.getName() + ".notas");
+            createCache(cm, com.es2.infoget.domain.Professores.class.getName());
+            createCache(cm, com.es2.infoget.domain.Professores.class.getName() + ".disciplinas");
+            createCache(cm, com.es2.infoget.domain.Notas.class.getName());
+            createCache(cm, com.es2.infoget.domain.Alunos.class.getName());
+            createCache(cm, com.es2.infoget.domain.Alunos.class.getName() + ".notas");
             // jhipster-needle-ehcache-add-entry
         };
     }
