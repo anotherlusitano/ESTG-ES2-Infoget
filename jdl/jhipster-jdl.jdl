@@ -1,0 +1,57 @@
+
+application {
+  config {
+    baseName Infoget
+    applicationType monolith
+    packageName com.es2.infoget
+    authenticationType jwt
+    prodDatabaseType postgresql
+    clientFramework react
+  }
+  entities *
+}
+
+
+entity Secretarios {
+	nomesecretario String required pattern(/^[A-Z][a-zA-Zà-úÀ-ÚãÃõÕ]+(?:\s[A-Z][a-zA-Zà-úÀ-ÚãÃõÕ]+)*(?:\s(?:da|do|dos|das|[A-Z][a-zA-Zà-úÀ-ÚãÃõÕ]+))?(?:\s[A-Z][a-zA-Zà-úÀ-ÚãÃõÕ]+)*$/)
+    email String required pattern(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/)
+    password String required
+}
+
+entity Cursos {
+	nomecurso String required
+}
+
+entity CursoDisciplina {
+	
+}
+
+entity Disciplinas {
+	nomedisciplina String required
+    cargahoraria Integer min(0)
+}
+
+entity Professores {
+	nomeprofessor String required pattern(/^[A-Z][a-zA-Zà-úÀ-ÚãÃõÕ]+(?:\s[A-Z][a-zA-Zà-úÀ-ÚãÃõÕ]+)*(?:\s(?:da|do|dos|das|[A-Z][a-zA-Zà-úÀ-ÚãÃõÕ]+))?(?:\s[A-Z][a-zA-Zà-úÀ-ÚãÃõÕ]+)*$/)
+    email String required pattern(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/)
+    password String required
+}
+
+entity Notas {
+	nota Integer min(0) max(20)
+}
+
+entity Alunos {
+	nomealuno String required pattern(/^[A-Z][a-zA-Zà-úÀ-ÚãÃõÕ]+(?:\s[A-Z][a-zA-Zà-úÀ-ÚãÃõÕ]+)*(?:\s(?:da|do|dos|das|[A-Z][a-zA-Zà-úÀ-ÚãÃõÕ]+))?(?:\s[A-Z][a-zA-Zà-úÀ-ÚãÃõÕ]+)*$/)
+    email String required pattern(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/)
+    password String required
+}
+
+relationship OneToMany {
+	Cursos to Alunos{cursos}
+	Cursos to CursoDisciplina{cursos}
+    Disciplinas to CursoDisciplina{disciplinas}
+    Professores to Disciplinas{professores}
+    Alunos to Notas{alunos}
+    Disciplinas to Notas{disciplinas}
+}

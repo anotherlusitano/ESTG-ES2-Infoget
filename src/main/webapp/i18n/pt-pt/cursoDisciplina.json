@@ -1,0 +1,25 @@
+{
+  "infogetApp": {
+    "cursoDisciplina": {
+      "home": {
+        "title": "Curso Disciplinas",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Criar novo(a) Curso Disciplina",
+        "createOrEditLabel": "Criar ou editar Curso Disciplina",
+        "notFound": "Nenhum Curso Disciplinas encontrado"
+      },
+      "created": "Um novo Curso Disciplina foi criado com o identificador {{ param }}",
+      "updated": "Curso Disciplina com identificador {{ param }} foi actualizado",
+      "deleted": "Curso Disciplina com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Curso Disciplina {{ id }}?"
+      },
+      "detail": {
+        "title": "Curso Disciplina"
+      },
+      "id": "ID",
+      "cursos": "Cursos",
+      "disciplinas": "Disciplinas"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "annotations": {
+    "changelogDate": "20241010100529"
+  },
+  "applications": ["Infoget"],
+  "fields": [],
+  "name": "CursoDisciplina",
+  "relationships": [
+    {
+      "otherEntityName": "cursos",
+      "relationshipName": "cursos",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "disciplinas",
+      "relationshipName": "disciplinas",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

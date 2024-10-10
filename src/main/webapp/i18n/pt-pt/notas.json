@@ -1,0 +1,26 @@
+{
+  "infogetApp": {
+    "notas": {
+      "home": {
+        "title": "Notas",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Criar novo(a) Notas",
+        "createOrEditLabel": "Criar ou editar Notas",
+        "notFound": "Nenhum Notas encontrado"
+      },
+      "created": "Um novo Notas foi criado com o identificador {{ param }}",
+      "updated": "Notas com identificador {{ param }} foi actualizado",
+      "deleted": "Notas com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Notas {{ id }}?"
+      },
+      "detail": {
+        "title": "Notas"
+      },
+      "id": "ID",
+      "nota": "Nota",
+      "alunos": "Alunos",
+      "disciplinas": "Disciplinas"
+    }
+  }
+}

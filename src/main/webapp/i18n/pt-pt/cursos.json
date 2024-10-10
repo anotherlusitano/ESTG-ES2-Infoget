@@ -1,0 +1,26 @@
+{
+  "infogetApp": {
+    "cursos": {
+      "home": {
+        "title": "Cursos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Criar novo(a) Cursos",
+        "createOrEditLabel": "Criar ou editar Cursos",
+        "notFound": "Nenhum Cursos encontrado"
+      },
+      "created": "Um novo Cursos foi criado com o identificador {{ param }}",
+      "updated": "Cursos com identificador {{ param }} foi actualizado",
+      "deleted": "Cursos com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Cursos {{ id }}?"
+      },
+      "detail": {
+        "title": "Cursos"
+      },
+      "id": "ID",
+      "nomecurso": "Nomecurso",
+      "alunos": "Alunos",
+      "cursoDisciplina": "Curso Disciplina"
+    }
+  }
+}
