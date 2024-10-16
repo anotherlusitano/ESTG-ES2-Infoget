@@ -7,6 +7,11 @@
 
 Este sistema permite inserir e a gerir dos dados escolares de alunos e professores.
 
+<details>
+    <summary>História do projeto</summary>
+    <img src="https://github.com/user-attachments/assets/2046027c-0f45-4928-ac98-4f80219e5c64" width="400" alt="Passado obscuro">
+</details>
+
 ## Equipa do Projeto
 - [Afonso Carrasquinho](https://github.com/Afonso295)
 - [António Vieru](https://github.com/antonuolink)
