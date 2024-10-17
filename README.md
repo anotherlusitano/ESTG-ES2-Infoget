@@ -9,7 +9,7 @@ Este sistema permite inserir e a gerir dos dados escolares de alunos e professor
 
 <details>
     <summary>História do projeto</summary>
-    <img src="https://github.com/user-attachments/assets/2046027c-0f45-4928-ac98-4f80219e5c64" width="400" alt="Passado obscuro">
+    <img src="https://github.com/user-attachments/assets/0b4d27eb-15da-4c51-b38f-263cae9bd3af" width="400" alt="Passado obscuro">
 </details>
 
 ## Equipa do Projeto
