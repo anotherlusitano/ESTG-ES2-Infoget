@@ -24,17 +24,17 @@ export default function Login({ status, canResetPassword }) {
         <GuestLayout>
             <Head title="Log in" />
 
-            <div className="flex items-center justify-center min-h-screen">
-                <div className="w-full max-w-md">
+            <div className="flex flex-col items-center justify-center min-h-screen">
+                <div className="text-white text-5xl text-center mb-11">
+                    Bem-vindo ao Infoget
+                </div>
+
+                <div className="w-full max-w-md mt-8 p-6 rounded-lg">
                     {status && (
                         <div className="mb-8 text-sm font-medium text-white text-center">
                             {status}
                         </div>
                     )}
-
-                    <div className="text-white text-5xl text-center" style={{ marginTop: '-10px' }}>
-                        Texto
-                    </div>
 
                     <form onSubmit={submit} className="space-y-10">
                         <div>
@@ -64,32 +64,33 @@ export default function Login({ status, canResetPassword }) {
                                 onChange={(e) => setData('password', e.target.value)}
                             />
                             <InputError message={errors.password} className="mt-2 text-white" />
-                        </div>
-
-                        <div className="block flex items-center">
-                            <label className="flex items-center text-white">
-                                <Checkbox
-                                    name="remember"
-                                    checked={data.remember}
-                                    onChange={(e) =>
-                                        setData('remember', e.target.checked)
-                                    }
-                                />
-                                <span className="ms-2 text-sm">Lembrar-me</span>
-                            </label>
-                        </div>
-
-                        <div className="flex items-center justify-end">
+                            
                             {canResetPassword && (
                                 <Link
                                     href={route('password.request')}
-                                    className="rounded-md text-sm text-white underline hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                    className="mt-2 block text-sm text-white underline hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                                 >
                                     Esqueceu-se da palavra-chave?
                                 </Link>
                             )}
-                            <PrimaryButton className="ms-4" disabled={processing}>
-                                Entrar
+                        </div>
+
+                        <div className="flex items-center">
+                            <Checkbox
+                                name="remember"
+                                checked={data.remember}
+                                onChange={(e) => setData('remember', e.target.checked)}
+                            />
+                            <label htmlFor="remember" className="ml-2 text-sm text-white">
+                                Lembrar-me
+                            </label>
+                        </div>
+
+                        <div className="flex items-center justify-center">
+                            <PrimaryButton 
+                                className="w-[200px] max-w-xs py-5 bg-white text-black hover:bg-[#9D1717] hover:text-white flex items-center justify-center" disabled={processing}>
+                               
+                                <span className="text-black">Entrar</span>
                             </PrimaryButton>
                         </div>
                     </form>
