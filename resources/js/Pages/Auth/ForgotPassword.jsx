@@ -11,13 +11,17 @@ export default function ForgotPassword({ status }) {
 
     const submit = (e) => {
         e.preventDefault();
-
+        
         post(route('password.email'));
     };
 
     return (
         <GuestLayout>
             <Head title="Recuperar Senha" />
+
+            <div className="text-4xl text-white mb-12" style={{ marginBottom: '200px' }}>
+                Recuperação de Conta
+            </div>
 
             <div className="mb-4 text-sm text-white">
                 Email:
