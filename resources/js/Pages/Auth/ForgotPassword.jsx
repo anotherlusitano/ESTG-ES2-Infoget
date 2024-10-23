@@ -11,7 +11,6 @@ export default function ForgotPassword({ status }) {
 
     const submit = (e) => {
         e.preventDefault();
-        
         post(route('password.email'));
     };
 
@@ -19,7 +18,7 @@ export default function ForgotPassword({ status }) {
         <GuestLayout>
             <Head title="Recuperar Senha" />
 
-            <div className="text-4xl text-white mb-12" style={{ marginBottom: '200px' }}>
+            <div className="text-4xl text-white mb-12 text-center" style={{ marginBottom: '50px' }}>
                 Recuperação de Conta
             </div>
 
@@ -28,7 +27,7 @@ export default function ForgotPassword({ status }) {
             </div>
 
             {status && (
-                <div className="mb-4 text-sm font-medium text-green-600">
+                <div className="mb-4 text-sm font-medium text-green-600 text-center">
                     {status}
                 </div>
             )}
