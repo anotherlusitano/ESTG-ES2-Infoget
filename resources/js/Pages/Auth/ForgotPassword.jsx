@@ -18,7 +18,7 @@ export default function ForgotPassword({ status }) {
         <GuestLayout>
             <Head title="Recuperar Senha" />
 
-            <div className="text-4xl text-white mb-12 text-center" style={{ marginBottom: '50px' }}>
+            <div className="text-white text-5xl text-center mb-11" style={{ marginTop: '200px', marginBottom: '100px' }}>
                 Recuperação de Conta
             </div>
 
