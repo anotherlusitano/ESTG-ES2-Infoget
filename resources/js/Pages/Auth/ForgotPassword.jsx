@@ -22,15 +22,9 @@ export default function ForgotPassword({ status }) {
                 Recuperação de Conta
             </div>
 
-            <div className="mb-4 text-sm text-white">
+            <div className="mb-1 text-sm text-white">
                 Email:
             </div>
-
-            {status && (
-                <div className="mb-4 text-sm font-medium text-green-600 text-center">
-                    {status}
-                </div>
-            )}
 
             <form onSubmit={submit}>
                 <TextInput
@@ -42,8 +36,14 @@ export default function ForgotPassword({ status }) {
                     isFocused={true}
                     onChange={(e) => setData('email', e.target.value)}
                 />
-
-                <InputError message={errors.email} className="mt-2" />
+				
+				{status && (
+					<div className="mt-2 text-sm font-medium text-orange-400 text-left">
+					{status}
+					</div>
+				)}
+				
+                <InputError message={errors.email} className="mt-2 text-orange-400" />
 
                 <div className="mt-4 flex items-center justify-end">
                     <PrimaryButton className="ms-4" disabled={processing}>
