@@ -16,6 +16,7 @@ O sistema irá proporcionar uma melhor gestão e organização das informações
 - [Diogo Vieira](https://github.com/xXD4rkSoulXx)
 - [João Ribeiro](https://github.com/anotherlusitano)
 - [João Aguiar](https://github.com/joaoaguiiar)
+- ChatGpt
 
 ## Características do produto
 - Registar alunos e professores
