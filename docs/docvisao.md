@@ -31,6 +31,10 @@ Este sistema é apenas aos membros do Instituto Paiget.
 Este sistema é desenvolvido apenas para web, não sendo possível, por exemplo, para aplicações Windows ou Android.
 
 
+## Arquitetura
+MVC
+
+
 ## Integração LLM 
 - Respostas Automáticas e Comuns.
 - Moderação Automatizada.
