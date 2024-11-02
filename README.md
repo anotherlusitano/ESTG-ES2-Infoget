@@ -18,6 +18,7 @@ Este sistema permite inserir e a gerir dos dados escolares de alunos e professor
 - [Diogo Vieira](https://github.com/xXD4rkSoulXx)
 - [João Ribeiro](https://github.com/anotherlusitano)
 - [João Aguiar](https://github.com/joaoaguiiar)
+- [Chatgpt](https://chatgpt.com)
 
 ## Tecnologia utilizada
 - [Laravel](https://laravel.com/)
