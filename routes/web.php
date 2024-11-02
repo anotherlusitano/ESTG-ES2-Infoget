@@ -10,11 +10,6 @@ use App\Http\Controllers\OllamaController;
 Route::get('/ollama', [OllamaController::class, 'index'])->name('ollama.index');
 Route::post('/ollama/generate', [OllamaController::class, 'generate'])->name('ollama.generate');
 
-
-
-
-
-
 Route::get('/', function () {
     return Inertia::render('Dashboard', [
         'canLogin' => Route::has('login'),
