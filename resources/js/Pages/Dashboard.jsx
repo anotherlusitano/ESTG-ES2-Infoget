@@ -52,5 +52,12 @@ function BotoesAluno() {
                     </div>
                 </div>
             </div>
+            <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 pb-8">
+                <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg">
+                    <div className="p-6 text-black">
+                        ChatBot
+                    </div>
+                </div>
+            </div>
         </div>)
 }
