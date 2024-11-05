@@ -3,6 +3,7 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import GuestLayout from '@/Layouts/GuestLayout';
 import { Head, useForm } from '@inertiajs/react';
+import { Link } from '@inertiajs/react';
 
 export default function ForgotPassword({ status }) {
     const { data, setData, post, processing, errors } = useForm({
@@ -17,6 +18,16 @@ export default function ForgotPassword({ status }) {
     return (
         <GuestLayout>
             <Head title="Recuperar Senha" />
+
+            <div className="absolute top-6 left-6">
+                <Link href={route('login')}>
+                    <img
+                        src="https://img.icons8.com/ios-filled/50/ffffff/left.png"
+                        alt="Voltar"
+                        className="w-8 h-10 cursor-pointer"
+                    />
+                </Link>
+            </div>
 
             <div className="text-white text-5xl text-center mb-11" style={{ marginTop: '200px', marginBottom: '100px' }}>
                 Recuperação de Conta
