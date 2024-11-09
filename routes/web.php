@@ -7,9 +7,6 @@ use Inertia\Inertia;
 
 use App\Http\Controllers\OllamaController;
 
-Route::get('/ollama', [OllamaController::class, 'index'])->name('ollama.index');
-Route::post('/ollama/generate', [OllamaController::class, 'generate'])->name('ollama.generate');
-
 Route::get('/', function () {
     return Inertia::render('Dashboard', [
         'canLogin' => Route::has('login'),
@@ -25,6 +22,8 @@ Route::get('/welcome', function () {
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::post('/dashboard/generate', [OllamaController::class, 'generate'])->name('dashboard.generate');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
