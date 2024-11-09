@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2afa7186609cb2c9ab0e31051df09110",
+    "content-hash": "9878823b71449f4a37b3ac8175134e70",
     "packages": [
         {
             "name": "brick/math",
@@ -134,6 +134,75 @@
                 }
             ],
             "time": "2024-02-09T16:56:22+00:00"
+        },
+        {
+            "name": "cloudstudio/ollama-laravel",
+            "version": "v1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cloudstudio/ollama-laravel.git",
+                "reference": "977f01ea63b3351224c3b4ff015baa23105775e9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cloudstudio/ollama-laravel/zipball/977f01ea63b3351224c3b4ff015baa23105775e9",
+                "reference": "977f01ea63b3351224c3b4ff015baa23105775e9",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.8",
+                "illuminate/contracts": "^11.0",
+                "php": "^8.2",
+                "spatie/laravel-package-tools": "^1.16"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.0",
+                "nunomaduro/collision": "^7.8",
+                "orchestra/testbench": "^8.8",
+                "pestphp/pest": "^2.20",
+                "pestphp/pest-plugin-arch": "^2.0",
+                "pestphp/pest-plugin-laravel": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Cloudstudio\\Ollama\\OllamaServiceProvider"
+                    ],
+                    "aliases": {
+                        "Ollama": "Cloudstudio\\Ollama\\Facades\\Ollama"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Cloudstudio\\Ollama\\": "src/",
+                    "Cloudstudio\\Ollama\\Database\\Factories\\": "database/factories/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Toni Soriano",
+                    "email": "hello@cloudstudio.es",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This is my package ollama-laravel",
+            "homepage": "https://github.com/cloudstudio/ollama-laravel",
+            "keywords": [
+                "cloudstudio",
+                "laravel",
+                "ollama-laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/cloudstudio/ollama-laravel/issues",
+                "source": "https://github.com/cloudstudio/ollama-laravel/tree/v1.0.7"
+            },
+            "time": "2024-05-01T09:53:23+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -3255,6 +3324,66 @@
                 }
             ],
             "time": "2024-04-27T21:32:50+00:00"
+        },
+        {
+            "name": "spatie/laravel-package-tools",
+            "version": "1.16.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-package-tools.git",
+                "reference": "c7413972cf22ffdff97b68499c22baa04eddb6a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/c7413972cf22ffdff97b68499c22baa04eddb6a2",
+                "reference": "c7413972cf22ffdff97b68499c22baa04eddb6a2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^9.28|^10.0|^11.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.5",
+                "orchestra/testbench": "^7.7|^8.0",
+                "pestphp/pest": "^1.22",
+                "phpunit/phpunit": "^9.5.24",
+                "spatie/pest-plugin-test-time": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\LaravelPackageTools\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Tools for creating Laravel packages",
+            "homepage": "https://github.com/spatie/laravel-package-tools",
+            "keywords": [
+                "laravel-package-tools",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-package-tools/issues",
+                "source": "https://github.com/spatie/laravel-package-tools/tree/1.16.5"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-08-27T18:56:10+00:00"
         },
         {
             "name": "symfony/clock",
