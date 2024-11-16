@@ -34,6 +34,9 @@ export default function Dashboard() {
 
     return (
         <InitialLayout
+            botoes={user.role == 2 && (
+                <BotoesProfessor toggleChat={toggleChat}/>
+            )}
             botoes={user.role == 3 && (
                 <BotoesAluno toggleChat={toggleChat}/>
             )}
@@ -42,6 +45,33 @@ export default function Dashboard() {
 
             {showChat && <ChatBot />}
         </InitialLayout>
+    );
+}
+
+function BotoesProfessor({toggleChat}) {
+    return (
+        <div className="py-12 text-center">
+            <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 pb-8">
+                <div className="overflow-hidden bg-white sm:rounded-lg">
+                    <div className="p-6 text-black">Dados Pessoais</div>
+                </div>
+            </div>
+            <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 pb-8">
+                <div className="overflow-hidden bg-white sm:rounded-lg">
+                    <div className="p-6 text-black">Disciplinas Lecionadas</div>
+                </div>
+            </div>
+            <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 pb-8">
+                <div className="overflow-hidden bg-white sm:rounded-lg">
+                    <div className="p-6 text-black">Turmas</div>
+                </div>
+            </div>
+            <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 pb-8">
+                <div onClick={toggleChat} className="overflow-hidden bg-white sm:rounded-lg cursor-pointer">
+                    <div className="p-6 text-black">Chatbot</div>
+                </div>
+            </div>
+        </div>
     );
 }
 
