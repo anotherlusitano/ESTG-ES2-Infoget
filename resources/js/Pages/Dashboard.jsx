@@ -33,6 +33,9 @@ export default function Dashboard() {
 
     return (
         <InitialLayout
+            botoes={user.role == 2 && (
+                <BotoesProfessor onButtonClick={handleButtonClick} />
+            )}
             botoes={user.role == 3 && (
                 <BotoesAluno onButtonClick={handleButtonClick} />
             )}
@@ -42,6 +45,33 @@ export default function Dashboard() {
             {currentComponent === 'dadosPessoais' && <DadosPessoais />}
             {currentComponent === 'chat' && <ChatBot />}
         </InitialLayout>
+    );
+}
+
+function BotoesProfessor({ onButtonClick }) {
+    return (
+        <div className="py-12 text-center">
+            <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 pb-8">
+                <div className="overflow-hidden bg-white sm:rounded-lg">
+                    <div onClick={() => onButtonClick('dadosPessoais')} className="p-6 text-black cursor-pointer">Dados Pessoais</div>
+                </div>
+            </div>
+            <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 pb-8">
+                <div className="overflow-hidden bg-white sm:rounded-lg">
+                    <div className="p-6 text-black">Disciplinas Lecionadas</div>
+                </div>
+            </div>
+            <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 pb-8">
+                <div className="overflow-hidden bg-white sm:rounded-lg">
+                    <div className="p-6 text-black">Turmas</div>
+                </div>
+            </div>
+            <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 pb-8">
+                <div onClick={() => onButtonClick('chat')} className="overflow-hidden bg-white sm:rounded-lg cursor-pointer">
+                    <div className="p-6 text-black">Chatbot</div>
+                </div>
+            </div>
+        </div>
     );
 }
 
