@@ -1,16 +1,15 @@
 import InitialLayout from '@/Layouts/InicialLayout';
 import ChatBot from '@/Components/ChatBot';
+import DadosPessoais from '@/Components/DadosPessoais';
 import { Head, usePage } from '@inertiajs/react';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Dashboard() {
     const user = usePage().props.auth.user;
-    const [showChat, setShowChat] = useState(false);
+    const [currentComponent, setCurrentComponent] = useState(null);
 
-    const toggleChat = () => {
-        if (!showChat) {
-            setShowChat(true);
-        }
+    const handleButtonClick = (component) => {
+        setCurrentComponent(component);
     };
 
     useEffect(() => {
@@ -35,25 +34,26 @@ export default function Dashboard() {
     return (
         <InitialLayout
             botoes={user.role == 2 && (
-                <BotoesProfessor toggleChat={toggleChat}/>
+                <BotoesProfessor onButtonClick={handleButtonClick} />
             )}
             botoes={user.role == 3 && (
-                <BotoesAluno toggleChat={toggleChat}/>
+                <BotoesAluno onButtonClick={handleButtonClick} />
             )}
         >
             <Head title="Dashboard" />
 
-            {showChat && <ChatBot />}
+            {currentComponent === 'dadosPessoais' && <DadosPessoais />}
+            {currentComponent === 'chat' && <ChatBot />}
         </InitialLayout>
     );
 }
 
-function BotoesProfessor({toggleChat}) {
+function BotoesProfessor({ onButtonClick }) {
     return (
         <div className="py-12 text-center">
             <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 pb-8">
                 <div className="overflow-hidden bg-white sm:rounded-lg">
-                    <div className="p-6 text-black">Dados Pessoais</div>
+                    <div onClick={() => onButtonClick('dadosPessoais')} className="p-6 text-black cursor-pointer">Dados Pessoais</div>
                 </div>
             </div>
             <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 pb-8">
@@ -67,7 +67,7 @@ function BotoesProfessor({toggleChat}) {
                 </div>
             </div>
             <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 pb-8">
-                <div onClick={toggleChat} className="overflow-hidden bg-white sm:rounded-lg cursor-pointer">
+                <div onClick={() => onButtonClick('chat')} className="overflow-hidden bg-white sm:rounded-lg cursor-pointer">
                     <div className="p-6 text-black">Chatbot</div>
                 </div>
             </div>
@@ -75,12 +75,12 @@ function BotoesProfessor({toggleChat}) {
     );
 }
 
-function BotoesAluno({toggleChat}) {
+function BotoesAluno({ onButtonClick }) {
     return (
         <div className="py-12 text-center">
             <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 pb-8">
                 <div className="overflow-hidden bg-white sm:rounded-lg">
-                    <div className="p-6 text-black">Dados Pessoais</div>
+                    <div onClick={() => onButtonClick('dadosPessoais')} className="p-6 text-black cursor-pointer">Dados Pessoais</div>
                 </div>
             </div>
             <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 pb-8">
@@ -94,7 +94,7 @@ function BotoesAluno({toggleChat}) {
                 </div>
             </div>
             <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 pb-8">
-                <div onClick={toggleChat} className="overflow-hidden bg-white sm:rounded-lg cursor-pointer">
+                <div onClick={() => onButtonClick('chat')} className="overflow-hidden bg-white sm:rounded-lg cursor-pointer">
                     <div className="p-6 text-black">Chatbot</div>
                 </div>
             </div>
