@@ -33,10 +33,10 @@ export default function Dashboard() {
 
     return (
         <InitialLayout
-            botoes={user.role == 2 && (
+            botoesprofessor={user.role == 2 && (
                 <BotoesProfessor onButtonClick={handleButtonClick} />
             )}
-            botoes={user.role == 3 && (
+            botoesaluno={user.role == 3 && (
                 <BotoesAluno onButtonClick={handleButtonClick} />
             )}
         >

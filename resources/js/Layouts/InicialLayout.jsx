@@ -1,6 +1,6 @@
 import { usePage } from '@inertiajs/react';
 
-export default function InitialLayout({ botoes, children }) {
+export default function InitialLayout({ botoesprofessor, botoesaluno, children }) {
     const user = usePage().props.auth.user;
 
     return (
@@ -18,7 +18,8 @@ export default function InitialLayout({ botoes, children }) {
 
             <div class="flex w-screen h-screen">
                 <div class="flex-none w-64 h-full">
-                    <botoes>{botoes}</botoes>
+                    <botoes>{user.role == 2 && (botoesprofessor)}</botoes>
+                    <botoes>{user.role == 3 && (botoesaluno)}</botoes>
                 </div>
                 <div class="flex-grow bg-white border-8 h-full">
                     <main>{children}</main>
