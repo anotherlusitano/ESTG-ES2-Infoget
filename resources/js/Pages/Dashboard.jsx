@@ -3,6 +3,7 @@ import ChatBot from '@/Components/ChatBot';
 import DadosPessoais from '@/Components/DadosPessoais';
 import { Head, usePage } from '@inertiajs/react';
 import React, { useState, useEffect } from 'react';
+import Cursos from '@/Components/Cursos';
 
 export default function Dashboard() {
     const user = usePage().props.auth.user;
@@ -43,6 +44,7 @@ export default function Dashboard() {
             <Head title="Dashboard" />
 
             {currentComponent === 'dadosPessoais' && <DadosPessoais />}
+            {currentComponent === 'cursos' && <Cursos />}
             {currentComponent === 'chat' && <ChatBot />}
         </InitialLayout>
     );
@@ -90,7 +92,7 @@ function BotoesAluno({ onButtonClick }) {
             </div>
             <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 pb-8">
                 <div className="overflow-hidden bg-white sm:rounded-lg">
-                    <div className="p-6 text-black">Disciplinas</div>
+                    <div onClick={() => onButtonClick('cursos')} className="p-6 text-black">Disciplinas</div>
                 </div>
             </div>
             <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 pb-8">
