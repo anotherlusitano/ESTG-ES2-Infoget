@@ -11,8 +11,8 @@ use App\Http\Controllers\DisciplinaController;
 
 use App\Http\Controllers\CursoController;
 
-Route::get('/cursos/adicionar', [CursoController::class, 'create'])->name('cursos.create');
-Route::post('/cursos', [CursoController::class, 'store'])->name('cursos.store');
+Route::get('/cursos/adicionar', [CursosController::class, 'create'])->name('cursos.create');
+Route::post('/cursos', [CursosController::class, 'store'])->name('cursos.store');
 
 
 
