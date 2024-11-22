@@ -27,6 +27,7 @@ class CursosController extends Controller
         return view('curso');
     }
     // Salvar os dados do curso no banco
+    /*
     public function store(Request $request)
     {
         $request->validate([
@@ -37,5 +38,5 @@ class CursosController extends Controller
         ]);
         Curso::create($request->all());
         return redirect()->route('cursos.create')->with('success', 'Curso adicionado com sucesso!');
-    }
+    }*/
 }

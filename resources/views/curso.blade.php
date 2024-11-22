@@ -33,21 +33,11 @@
                             </div>
                         @endif
 
-                        <form action="{{ route('cursos.store') }}" method="POST">
-                            @csrf
+<!--                         <form action="{{ route('cursos.store') }}" method="POST">
+                            @csrf -->
                             <div class="mb-3">
                                 <label for="nome" class="form-label">Nome do Curso</label>
                                 <input type="text" name="nome" id="nome" class="form-control" value="{{ old('nome') }}" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="codigo" class="form-label">Código</label>
-                                <input type="text" name="codigo" id="codigo" class="form-control" value="{{ old('codigo') }}" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="duracao" class="form-label">Duração (em anos)</label>
-                                <input type="number" name="duracao" id="duracao" class="form-control" value="{{ old('duracao') }}" required min="1" max="10">
                             </div>
 
                             <div class="mb-3">
@@ -59,7 +49,7 @@
                             <div class="d-grid">
                                 <button type="submit" class="btn btn-danger">Salvar</button>
                             </div>
-                        </form>
+                        <!-- </form> -->
                     </div>
                 </div>
             </div>
