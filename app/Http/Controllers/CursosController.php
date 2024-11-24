@@ -16,8 +16,40 @@ class CursosController extends Controller
                      ->select('cursos.id', 'cursos.nome')
                      ->get();
 
+        $coursesWithStudents = DB::table('cursos')
+                                    ->leftJoin('aluno_curso', 'cursos.id', '=', 'aluno_curso.idcurso')
+                                    ->leftJoin('users as alunos', 'aluno_curso.idaluno', '=', 'alunos.id')
+                                    ->leftJoin('disciplina_curso', 'cursos.id', '=', 'disciplina_curso.idcurso')
+                                    ->leftJoin('disciplinas', 'disciplina_curso.iddisciplina', '=', 'disciplinas.id')
+                                    ->leftJoin('users as coordenadores', 'cursos.idcoordenador', '=', 'coordenadores.id')
+                                    ->where('disciplinas.idprofessor', '=', $userId)
+                                    ->select(
+                                        'cursos.id as idcurso',
+                                        'cursos.nome as nome_curso',
+                                        'coordenadores.name as nome_coordenador',
+                                        'alunos.id as idaluno',
+                                        'alunos.name as nome_aluno'
+                                    )
+                                    ->distinct()
+                                    ->get()
+                                    ->groupBy('idcurso')
+                                    ->map(function ($course) {
+                                        return [
+                                            'idcurso' => $course[0]->idcurso,
+                                            'nome_curso' => $course[0]->nome_curso,
+                                            'nome_coordenador' => $course[0]->nome_coordenador,
+                                            'students' => $course->map(function ($aluno) {
+                                                return [
+                                                    'idaluno' => $aluno->idaluno,
+                                                    'nome_aluno' => $aluno->nome_aluno,
+                                                ];
+                                            })->filter()->values()
+                                        ];
+                                    })->values(); 
+
         return response()->json([
             'courses' => $courses,
+            'coursesWithStudents' => $coursesWithStudents,
         ]);
     }
     
