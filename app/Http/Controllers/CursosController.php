@@ -38,7 +38,7 @@ class CursosController extends Controller
                                             'idcurso' => $course[0]->idcurso,
                                             'nome_curso' => $course[0]->nome_curso,
                                             'nome_coordenador' => $course[0]->nome_coordenador,
-                                            'students' => $course->map(function ($aluno) {
+                                            'estudados' => $course->map(function ($aluno) {
                                                 return [
                                                     'idaluno' => $aluno->idaluno,
                                                     'nome_aluno' => $aluno->nome_aluno,
