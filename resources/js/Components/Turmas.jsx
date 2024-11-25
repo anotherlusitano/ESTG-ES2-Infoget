@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+udimport React, { useEffect, useState } from 'react';
 
 const Turmas = () => {
     const [coursesWithStudents, setCoursesWithStudents] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('/dashboard/students')
+        fetch('/dashboard/estudados')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -34,10 +34,10 @@ const Turmas = () => {
                             {coursesWithStudents.map((course) => (
                                 <li key={course.idcurso}>
                                     <h2 className="font-bold">{course.nome_curso} - {course.nome_coordenador}</h2>
-                                    {course.students && course.students.length > 0 ? (
+                                    {course.estudados && course.estudados.length > 0 ? (
                                         <ul>
-                                            {course.students.map((student) => (
-                                                <li key={student.idaluno}>{student.nome_aluno}</li>
+                                            {course.estudados.map((estudado) => (
+                                                <li key={estudado.idaluno}>{estudado.nome_aluno}</li>
                                             ))}
                                         </ul>
                                     ) : (
