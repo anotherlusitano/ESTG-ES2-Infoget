@@ -29,8 +29,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::post('/dashboard/generate', [OllamaController::class, 'generate'])->name('dashboard.generate');
-
 Route::get('/dashboard/cursos', [CursosController::class, 'cursos'])->name('dashboard.cursos');
+Route::get('/dashboard/estudados', [CursosController::class, 'cursos'])->name('dashboard.estudados');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
