@@ -1,13 +1,13 @@
 <?php
 
 use App\Http\Controllers\CursosController;
+use App\Http\Controllers\DisciplinasController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 use App\Http\Controllers\OllamaController;
-use App\Http\Controllers\DisciplinaController;
 
 Route::get('/cursos/adicionar', [CursosController::class, 'create'])->name('cursos.create');
 Route::post('/cursos', [CursosController::class, 'store'])->name('cursos.store');
@@ -30,6 +30,7 @@ Route::get('/dashboard', function () {
 
 Route::post('/dashboard/generate', [OllamaController::class, 'generate'])->name('dashboard.generate');
 Route::get('/dashboard/cursos', [CursosController::class, 'cursos'])->name('dashboard.cursos');
+Route::get('/dashboard/disciplinas', [DisciplinasController::class, 'disciplinas'])->name('dashboard.disciplinas');
 Route::get('/dashboard/estudados', [CursosController::class, 'cursos'])->name('dashboard.estudados');
 
 Route::middleware('auth')->group(function () {
