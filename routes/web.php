@@ -6,7 +6,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-
+use Illuminate\Http\Request;
 use App\Http\Controllers\OllamaController;
 
 Route::get('/cursos/adicionar', [CursosController::class, 'create'])->name('cursos.create');
@@ -42,4 +42,9 @@ Route::middleware('auth')->group(function () {
 Route::get('/admin', function () {
     return view('admin.area');
 });
+
+Route::get('/admin/professor', function () {
+    return view('admin.professor');
+})->name('admin.professor');
+
 require __DIR__.'/auth.php';
