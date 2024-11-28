@@ -78,7 +78,7 @@
     <div class="container">
         <div class="buttons">
             <a href="#">Aluno</a>
-            <a href="#">Professor</a>
+            <a href="{{ route('admin.professor') }}">Professor</a>
             <a href="#">Secretaria</a>
         </div>
     </div>
