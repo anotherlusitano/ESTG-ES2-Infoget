@@ -31,6 +31,7 @@ Route::get('/dashboard', function () {
 Route::post('/dashboard/generate', [OllamaController::class, 'generate'])->name('dashboard.generate');
 Route::get('/dashboard/cursos', [CursosController::class, 'cursos'])->name('dashboard.cursos');
 Route::get('/dashboard/disciplinas', [DisciplinasController::class, 'disciplinas'])->name('dashboard.disciplinas');
+Route::post('/disciplinas/submit-grade', [DisciplinasController::class, 'submitGrade']);
 Route::get('/dashboard/estudados', [CursosController::class, 'cursos'])->name('dashboard.estudados');
 
 Route::middleware('auth')->group(function () {
