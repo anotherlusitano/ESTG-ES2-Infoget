@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 
 class DisciplinasController extends Controller
@@ -55,6 +56,26 @@ class DisciplinasController extends Controller
         return response()->json([
             'disciplinas' => $disciplinas,
             'disciplinesWithStudents' => $disciplinesWithStudents,
+        ]);
+    }
+
+    public function disciplinas_com_notas()
+    {
+        $userId = Auth::id();
+
+        $notas = DB::table('notas')
+                    ->leftJoin('disciplinas', 'notas.iddisciplina', '=', 'disciplinas.id')
+                    ->where('idaluno', $userId)
+                    ->select(
+                        'disciplinas.nome as nome_disciplina',
+                        'notas.nota as nota_aluno'
+                    )
+                    ->get()
+                    ->groupBy('iddisciplina')
+                    ->values();
+
+        return response()->json([
+            'disciplinas_com_notas' => $notas,
         ]);
     }
 
