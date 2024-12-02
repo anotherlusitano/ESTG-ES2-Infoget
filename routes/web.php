@@ -6,7 +6,6 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use Illuminate\Http\Request;
 use App\Http\Controllers\OllamaController;
 
 Route::get('/cursos/adicionar', [CursosController::class, 'create'])->name('cursos.create');
@@ -33,6 +32,7 @@ Route::get('/dashboard/cursos', [CursosController::class, 'cursos'])->name('dash
 Route::get('/dashboard/disciplinas', [DisciplinasController::class, 'disciplinas'])->name('dashboard.disciplinas');
 Route::post('/disciplinas/submit-grade', [DisciplinasController::class, 'submitGrade']);
 Route::get('/dashboard/estudados', [CursosController::class, 'cursos'])->name('dashboard.estudados');
+Route::get('/dashboard/dados-curriculares', [DisciplinasController::class, 'disciplinas_com_notas'])->name('dashboard.disciplinas_com_notas');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
