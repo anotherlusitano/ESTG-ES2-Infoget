@@ -7,6 +7,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\OllamaController;
+use App\Http\Controllers\ProfessorController;
 
 Route::get('/cursos/adicionar', [CursosController::class, 'create'])->name('cursos.create');
 Route::post('/cursos', [CursosController::class, 'store'])->name('cursos.store');
@@ -47,5 +48,7 @@ Route::get('/admin', function () {
 Route::get('/admin/professor', function () {
     return view('admin.professor');
 })->name('admin.professor');
+
+Route::post('/admin/professor/criarProfessor', [ProfessorController::class, 'criarProfessor']);
 
 require __DIR__.'/auth.php';

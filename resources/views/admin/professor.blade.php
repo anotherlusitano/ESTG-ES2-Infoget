@@ -55,8 +55,9 @@
 <body>
     <div class="form-container">
         <h1>Adicionar de Professor</h1>
-        <form>
+        <form method="POST" action="{{url('/admin/professor/criarProfessor')}}">
             <label for="nome">Nome do Professor:</label>
+            @csrf
             <input type="text" id="nome" name="nome" required>
 
             <label for="email">Email:</label>
@@ -67,6 +68,12 @@
 
             <button type="submit">Criar Professor</button>
         </form>
+        @if(session('message'))
+        <script>
+            const message = {!! session('message') !!};
+            alert(message.message);
+        </script>
+        @endif
     </div>
 </body>
 </html>
