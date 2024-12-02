@@ -51,6 +51,7 @@ Route::get('/admin/professor', function () {
 })->name('admin.professor');
 
 Route::get('/admin/aluno', [AlunoController::class, 'index'])->name('admin.aluno.index');
+Route::post('/admin/aluno/criarAluno', [AlunoController::class, 'criarAluno']);
 
 Route::post('/admin/professor/criarProfessor', [ProfessorController::class, 'criarProfessor']);
 
