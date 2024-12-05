@@ -114,4 +114,38 @@ class DisciplinasController extends Controller
             return response()->json(['success' => false, 'message' => 'Erro interno no servidor.', 'error' => $e->getMessage()], 500);
         }        
     }
+
+    public function criarDisciplina(Request $request)
+    {
+        try {
+            DB::beginTransaction();
+        
+            $nome = $request->input('nome');
+            $carga_horaria = $request->input('carga_horaria');
+        
+            if (!$nome === null) {
+                return redirect()->back()->with('message', json_encode(['success' => false, 'message' => 'Parâmetros inválidos.']));
+            }
+        
+            $existeDisciplina = DB::table('disciplinas')
+                ->where('nome', $nome)
+                ->first();
+        
+            if ($existeDisciplina) {
+                return redirect()->back()->with('message', json_encode(['success' => false, 'message' => 'A disciplina já está registrada.']));
+            }
+        
+            $iddisciplina = DB::table('disciplinas')->insertGetId([
+                'nome' => $nome,
+                'carga_horaria' => $carga_horaria,
+            ]);
+
+            DB::commit();
+
+            return redirect()->back()->with('message', json_encode(['success' => true, 'message' => 'Disciplina registrado com sucesso.']));
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('message', json_encode(['success' => false, 'message' => 'Erro interno no servidor.', 'error' => $e->getMessage()]));
+        }        
+    }
 }

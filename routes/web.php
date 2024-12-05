@@ -9,9 +9,8 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\OllamaController;
 use App\Http\Controllers\ProfessorController;
-
-Route::get('/cursos/adicionar', [CursosController::class, 'create'])->name('cursos.create');
-Route::post('/cursos', [CursosController::class, 'store'])->name('cursos.store');
+use App\Http\Controllers\CursoDisciplinaController;
+use App\Http\Controllers\ProfessorDisciplinaController;
 
 Route::get('/', function () {
     return Inertia::render('Dashboard', [
@@ -46,13 +45,27 @@ Route::get('/admin', function () {
     return view('admin.area');
 });
 
-Route::get('/admin/professor', function () {
-    return view('admin.professor');
-})->name('admin.professor');
-
 Route::get('/admin/aluno', [AlunoController::class, 'index'])->name('admin.aluno.index');
 Route::post('/admin/aluno/criarAluno', [AlunoController::class, 'criarAluno']);
 
+Route::get('/admin/professor', function () {
+    return view('admin.professor');
+})->name('admin.professor');
 Route::post('/admin/professor/criarProfessor', [ProfessorController::class, 'criarProfessor']);
+
+Route::get('/admin/curso', [CursosController::class, 'index'])->name('admin.curso.index');
+Route::post('/admin/curso/criarCurso', [CursosController::class, 'criarCurso']);
+
+Route::get('/admin/disciplina', function () {
+    return view('admin.disciplina');
+})->name('admin.disciplina.index');
+Route::post('/admin/disciplina/criarDisciplina', [DisciplinasController::class, 'criarDisciplina']);
+
+Route::get('/admin/curso_disciplina', [CursoDisciplinaController::class, 'index'])->name('admin.curso_disciplina.index');
+Route::post('/admin/curso_disciplina/associarDisciplinaCurso', [CursoDisciplinaController::class, 'associarDisciplinaCurso']);
+
+Route::get('/admin/professor_disciplina', [ProfessorDisciplinaController::class, 'index'])->name('admin.professor_disciplina.index');
+Route::post('/admin/professor_disciplina/associarProfessorDisciplina', [ProfessorDisciplinaController::class, 'associarProfessorDisciplina']);
+
 
 require __DIR__.'/auth.php';

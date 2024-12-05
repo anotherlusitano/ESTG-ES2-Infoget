@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class CursosController extends Controller
 {
@@ -52,23 +53,52 @@ class CursosController extends Controller
             'coursesWithStudents' => $coursesWithStudents,
         ]);
     }
-    
-    // Exibir o formulário de criação
-    public function create()
+
+    public function index()
     {
-        return view('curso');
+        $users = DB::table('users')->where('role', '=', 2)->get(); 
+        return view('admin.curso', compact('users'));
     }
-    // Salvar os dados do curso no banco
-    /*
-    public function store(Request $request)
+
+    public function criarCurso(Request $request)
     {
-        $request->validate([
-            'nome' => 'required|string|max:255',
-            'codigo' => 'required|string|max:10|unique:cursos,codigo',
-            'duracao' => 'required|integer|min:1|max:10', // Duração em anos
-            'descricao' => 'nullable|string|max:1000',
-        ]);
-        Curso::create($request->all());
-        return redirect()->route('cursos.create')->with('success', 'Curso adicionado com sucesso!');
-    }*/
+        try {
+            DB::beginTransaction();
+        
+            $nome = $request->input('nome');
+            $idcoordenador = $request->input('idcoordenador');
+        
+            if (!$nome === null || !$idcoordenador === null) {
+                return redirect()->back()->with('message', json_encode(['success' => false, 'message' => 'Parâmetros inválidos.']));
+            }
+        
+            $existeCurso = DB::table('cursos')
+                ->where('nome', $nome)
+                ->first();
+        
+            if ($existeCurso) {
+                return redirect()->back()->with('message', json_encode(['success' => false, 'message' => 'O curso já está registrado.']));
+            }
+
+            $existeCoordenador = DB::table('cursos')
+                ->where('idcoordenador', $idcoordenador)
+                ->first();
+        
+            if ($existeCoordenador) {
+                return redirect()->back()->with('message', json_encode(['success' => false, 'message' => 'O coordenador já é coordenador de um curso.']));
+            }
+        
+            $idcurso = DB::table('cursos')->insertGetId([
+                'nome' => $nome,
+                'idcoordenador' => $idcoordenador,
+            ]);
+
+            DB::commit();
+
+            return redirect()->back()->with('message', json_encode(['success' => true, 'message' => 'Curso registrado com sucesso.']));
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('message', json_encode(['success' => false, 'message' => 'Erro interno no servidor.', 'error' => $e->getMessage()]));
+        }        
+    }
 }
