@@ -74,7 +74,7 @@
 
     <div class="container">
         <div class="buttons">
-            <a href="{{ route('admin.curso') }}">Cursos</a>
+            <a href="{{ route('admin.curso.index') }}">Cursos</a>
             <a href="{{ route('admin.menudisciplina') }}">Disciplinas</a>
         </div>
     </div>
