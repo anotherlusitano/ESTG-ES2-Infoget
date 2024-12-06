@@ -43,7 +43,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/admin', function () {
     return view('admin.area');
-});
+})->name('admin.area');
 
 Route::get('/admin/aluno', [AlunoController::class, 'index'])->name('admin.aluno.index');
 Route::post('/admin/aluno/criarAluno', [AlunoController::class, 'criarAluno']);
@@ -55,14 +55,14 @@ Route::post('/admin/professor/criarProfessor', [ProfessorController::class, 'cri
 
 Route::get('/admin/secretaria', function () {
     return view('admin.secretaria');
-});
+})->name('admin.secretaria');
 
 Route::get('/admin/curso', [CursosController::class, 'index'])->name('admin.curso.index');
 Route::post('/admin/curso/criarCurso', [CursosController::class, 'criarCurso']);
 
 Route::get('/admin/menudisciplina', function () {
     return view('admin.menudisciplina');
-});
+})->name('admin.menudisciplina');
 
 Route::get('/admin/disciplina', function () {
     return view('admin.disciplina');
