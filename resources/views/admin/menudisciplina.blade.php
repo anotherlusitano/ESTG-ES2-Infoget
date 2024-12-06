@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Área de Administração</title>
+    <title>Área de Disciplinas</title>
     <style>
         body {
             margin: 0;
@@ -17,7 +17,6 @@
             height: 100vh;
         }
 
-       
         h1 {
             position: absolute;
             top: 20px;
@@ -34,8 +33,8 @@
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
-            width: 90%; 
-            max-width: 1200px; 
+            width: 80%;
+            max-width: 800px;
             min-height: 200px;
             display: flex;
             flex-direction: column;
@@ -43,9 +42,9 @@
             align-items: center;
         }
 
-        
         .buttons {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-around;
             width: 100%;
             margin-top: 20px;
@@ -55,14 +54,15 @@
             text-decoration: none;
             background: #800000;
             color: white;
-            width: 250px; 
-            height: 120px; 
+            width: 200px;
+            height: 100px;
             display: flex;
             justify-content: center;
             align-items: center;
             border-radius: 10px;
             transition: all 0.3s ease;
-            font-size: 26px; 
+            font-size: 18px;
+            margin: 10px;
         }
 
         .buttons a:hover {
@@ -72,14 +72,13 @@
 </head>
 <body>
 
-    <h1>Área de Administração</h1>
+    <h1>Área de Disciplinas</h1>
 
-   
     <div class="container">
         <div class="buttons">
-            <a href="{{ route('admin.aluno.index') }}">Aluno</a>
-            <a href="{{ route('admin.professor') }}">Professor</a>
-            <a href="{{ route('admin.secretaria') }}">Secretaria</a>
+            <a href="{{ route('admin.professor') }}">Adicionar Disciplina</a>
+            <a href="{{ route('admin.professor_disciplina.index') }}">Associar Professor</a>
+            <a href="{{ route('admin.curso_disciplina.index') }}">Associar Curso</a>
         </div>
     </div>
 </body>
