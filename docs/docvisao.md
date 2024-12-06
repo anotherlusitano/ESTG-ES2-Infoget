@@ -15,7 +15,7 @@ O sistema irá proporcionar uma melhor gestão e organização das informações
 - [António Vieru](https://github.com/antonuolink)
 - [Diogo Vieira](https://github.com/xXD4rkSoulXx)
 - [João Ribeiro](https://github.com/anotherlusitano)
-- [João Aguiar](https://github.com/joaoaguiiar)
+- [João Aguiar](https://chatgpt.com)
 - [Chatpt](https://chatgpt.com)
 
 ## Características do produto
@@ -37,6 +37,7 @@ MVC
 
 
 ## Integração LLM 
-- Respostas Automáticas e Comuns.
-- Moderação Automatizada.
-- Recomendações de Recursos de Estudo
+- Conversas sobre melhorar o Estudo
+- Técnicas para melhorar as aulas
+- Tirar dúvidas sobre a matéria
+- Gerador de exercicíos

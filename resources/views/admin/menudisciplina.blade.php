@@ -76,7 +76,7 @@
 
     <div class="container">
         <div class="buttons">
-            <a href="{{ route('admin.professor') }}">Adicionar Disciplina</a>
+            <a href="{{ route('admin.disciplina.index') }}">Adicionar Disciplina</a>
             <a href="{{ route('admin.professor_disciplina.index') }}">Associar Professor</a>
             <a href="{{ route('admin.curso_disciplina.index') }}">Associar Curso</a>
         </div>
