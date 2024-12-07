@@ -60,7 +60,6 @@
             width: 32px;
             height: 32px;
             fill: white;
-            transition: transform 0.2s ease;
         }
     </style>
 </head>
