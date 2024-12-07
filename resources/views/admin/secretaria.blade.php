@@ -66,10 +66,29 @@
         .buttons a:hover {
             background: #4d0000;
         }
+
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            z-index: 100;
+        }
+        
+        .back-link svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
     </style>
 </head>
 <body>
-
+    <a href="{{ url('/admin') }}" class="back-link">
+        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 14 10">
+            <path stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
+        </svg>
+    </a>
+    
     <h1>Área da Secretaria</h1>
 
     <div class="container">
