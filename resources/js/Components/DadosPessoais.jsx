@@ -14,8 +14,8 @@ export default function ChatBot() {
                     E-Mail Oficial: {user.email}
                     <br />
                     <div className='md-flex'>
-                        <div className="pt-10">Este és tu -&gt; </div>
-                        <img src={MyImage} alt="ÉS TU >:)" className="rounded-full size-72" />
+                        <div className="pt-10">Este é o nosso grande lider: -&gt; </div>
+                        <img src={MyImage} alt="Isto vai fazer que os testes do Aguiar não funcionem lol" className="rounded-full size-72" />
                     </div>
 
                 </div>
