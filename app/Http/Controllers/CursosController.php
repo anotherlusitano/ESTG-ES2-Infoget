@@ -56,6 +56,11 @@ class CursosController extends Controller
 
     public function index()
     {
+        $user = Auth::user();
+        if ($user->role !== 1) {
+            return redirect()->intended(route('dashboard'));
+        }
+
         $users = DB::table('users')->where('role', '=', 2)->get(); 
         return view('admin.curso', compact('users'));
     }
