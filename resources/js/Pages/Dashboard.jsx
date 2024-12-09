@@ -11,10 +11,21 @@ import Turmas from '@/Components/Turmas';
 export default function Dashboard() {
     const user = usePage().props.auth.user;
     const [currentComponent, setCurrentComponent] = useState(null);
-
+    
     const handleButtonClick = (component) => {
         setCurrentComponent(component);
     };
+
+    useEffect(() => {
+        fetch('/api/user')
+          .then(response => response.json())
+          .then(data => {
+            if (data.role === 1) {
+                window.location.href = '/admin';
+            }
+          })
+          .catch(error => console.error("Erro ao buscar dados do utilizador:", error));
+      }, []);
 
     useEffect(() => {
         const hasReloaded = localStorage.getItem('hasReloaded');
@@ -98,7 +109,7 @@ function BotoesAluno({ onButtonClick }) {
             </div>
             <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 pb-8">
                 <div className="overflow-hidden bg-white sm:rounded-lg">
-                    <div onClick={() => onButtonClick('cursos')} className="p-6 text-black cursor-pointer">Disciplinas</div>
+                    <div onClick={() => onButtonClick('cursos')} className="p-6 text-black cursor-pointer">Cursos</div>
                 </div>
             </div>
             <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 pb-8">
