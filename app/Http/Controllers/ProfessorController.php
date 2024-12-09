@@ -5,9 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class ProfessorController extends Controller
 {
+    public function index()
+    {
+        $user = Auth::user();
+        if ($user->role !== 1) {
+            return redirect()->intended(route('dashboard'));
+        }
+        return view('admin.professor');
+    }
+
     public function criarProfessor(Request $request)
     {
         try {
@@ -32,6 +43,7 @@ class ProfessorController extends Controller
             DB::table('users')->insert([
                 'name' => $nome,
                 'email' => $email,
+                'email_verified_at' => now(),
                 'role' => 2,
                 'password' => Hash::make($password)
             ]);

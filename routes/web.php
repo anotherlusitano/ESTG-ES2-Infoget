@@ -11,6 +11,18 @@ use App\Http\Controllers\OllamaController;
 use App\Http\Controllers\ProfessorController;
 use App\Http\Controllers\CursoDisciplinaController;
 use App\Http\Controllers\ProfessorDisciplinaController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SecretariaController;
+use App\Http\Controllers\MenuDisciplinaController;
+use App\Http\Controllers\DashboardController;
+use Illuminate\Support\Facades\Auth;
+
+Route::middleware(['auth', 'verified'])->get('/api/user', function () {
+    $user = Auth::user();
+    return response()->json([
+        'role' => $user->role,
+    ]);
+});
 
 Route::get('/', function () {
     return Inertia::render('Dashboard', [
@@ -28,12 +40,12 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::post('/dashboard/generate', [OllamaController::class, 'generate'])->name('dashboard.generate');
-Route::get('/dashboard/cursos', [CursosController::class, 'cursos'])->name('dashboard.cursos');
-Route::get('/dashboard/disciplinas', [DisciplinasController::class, 'disciplinas'])->name('dashboard.disciplinas');
-Route::post('/disciplinas/submit-grade', [DisciplinasController::class, 'submitGrade']);
-Route::get('/dashboard/estudados', [CursosController::class, 'cursos'])->name('dashboard.estudados');
-Route::get('/dashboard/dados-curriculares', [DisciplinasController::class, 'disciplinas_com_notas'])->name('dashboard.disciplinas_com_notas');
+Route::post('/dashboard/generate', [OllamaController::class, 'generate'])->middleware(['auth', 'verified'])->name('dashboard.generate');
+Route::get('/dashboard/cursos', [CursosController::class, 'cursos'])->middleware(['auth', 'verified'])->name('dashboard.cursos');
+Route::get('/dashboard/disciplinas', [DisciplinasController::class, 'disciplinas'])->middleware(['auth', 'verified'])->name('dashboard.disciplinas');
+Route::post('/disciplinas/submit-grade', [DisciplinasController::class, 'submitGrade'])->middleware(['auth', 'verified']);
+Route::get('/dashboard/estudados', [CursosController::class, 'cursos'])->middleware(['auth', 'verified'])->name('dashboard.estudados');
+Route::get('/dashboard/dados-curriculares', [DisciplinasController::class, 'disciplinas_com_notas'])->middleware(['auth', 'verified'])->name('dashboard.disciplinas_com_notas');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -41,39 +53,29 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/admin', function () {
-    return view('admin.area');
-})->name('admin.area');
+Route::get('/admin', [AdminController::class, 'index'])->middleware(['auth', 'verified'])->name('admin.area.index');
 
-Route::get('/admin/aluno', [AlunoController::class, 'index'])->name('admin.aluno.index');
-Route::post('/admin/aluno/criarAluno', [AlunoController::class, 'criarAluno']);
+Route::get('/admin/aluno', [AlunoController::class, 'index'])->middleware(['auth', 'verified'])->name('admin.aluno.index');
+Route::post('/admin/aluno/criarAluno', [AlunoController::class, 'criarAluno'])->middleware(['auth', 'verified']);
 
-Route::get('/admin/professor', function () {
-    return view('admin.professor');
-})->name('admin.professor');
-Route::post('/admin/professor/criarProfessor', [ProfessorController::class, 'criarProfessor']);
+Route::get('/admin/professor', [ProfessorController::class, 'index'])->middleware(['auth', 'verified'])->name('admin.professor.index');
+Route::post('/admin/professor/criarProfessor', [ProfessorController::class, 'criarProfessor'])->middleware(['auth', 'verified']);
 
-Route::get('/admin/secretaria', function () {
-    return view('admin.secretaria');
-})->name('admin.secretaria');
+Route::get('/admin/secretaria', [SecretariaController::class, 'index'])->middleware(['auth', 'verified'])->name('admin.secretaria.index');
 
-Route::get('/admin/curso', [CursosController::class, 'index'])->name('admin.curso.index');
-Route::post('/admin/curso/criarCurso', [CursosController::class, 'criarCurso']);
+Route::get('/admin/curso', [CursosController::class, 'index'])->middleware(['auth', 'verified'])->name('admin.curso.index');
+Route::post('/admin/curso/criarCurso', [CursosController::class, 'criarCurso'])->middleware(['auth', 'verified']);
 
-Route::get('/admin/menudisciplina', function () {
-    return view('admin.menudisciplina');
-})->name('admin.menudisciplina');
+Route::get('/admin/disciplina', [DisciplinasController::class, 'index'])->middleware(['auth', 'verified'])->name('admin.disciplina.index');
+Route::post('/admin/disciplina/criarDisciplina', [DisciplinasController::class, 'criarDisciplina'])->middleware(['auth', 'verified']);
 
-Route::get('/admin/disciplina', function () {
-    return view('admin.disciplina');
-})->name('admin.disciplina.index');
-Route::post('/admin/disciplina/criarDisciplina', [DisciplinasController::class, 'criarDisciplina']);
+Route::get('/admin/menudisciplina', [MenuDisciplinaController::class, 'index'])->middleware(['auth', 'verified'])->name('admin.menudisciplina.index');
 
-Route::get('/admin/curso_disciplina', [CursoDisciplinaController::class, 'index'])->name('admin.curso_disciplina.index');
-Route::post('/admin/curso_disciplina/associarDisciplinaCurso', [CursoDisciplinaController::class, 'associarDisciplinaCurso']);
+Route::get('/admin/curso_disciplina', [CursoDisciplinaController::class, 'index'])->middleware(['auth', 'verified'])->name('admin.curso_disciplina.index');
+Route::post('/admin/curso_disciplina/associarDisciplinaCurso', [CursoDisciplinaController::class, 'associarDisciplinaCurso'])->middleware(['auth', 'verified']);
 
-Route::get('/admin/professor_disciplina', [ProfessorDisciplinaController::class, 'index'])->name('admin.professor_disciplina.index');
-Route::post('/admin/professor_disciplina/associarProfessorDisciplina', [ProfessorDisciplinaController::class, 'associarProfessorDisciplina']);
+Route::get('/admin/professor_disciplina', [ProfessorDisciplinaController::class, 'index'])->middleware(['auth', 'verified'])->name('admin.professor_disciplina.index');
+Route::post('/admin/professor_disciplina/associarProfessorDisciplina', [ProfessorDisciplinaController::class, 'associarProfessorDisciplina'])->middleware(['auth', 'verified']);
 
 
 require __DIR__.'/auth.php';

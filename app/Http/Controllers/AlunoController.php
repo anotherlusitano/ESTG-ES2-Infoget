@@ -6,11 +6,17 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AlunoController extends Controller
 {
     public function index()
     {
+        $user = Auth::user();
+        if ($user->role !== 1) {
+            return redirect()->intended(route('dashboard'));
+        }
+
         $cursos = DB::table('cursos')->get(); 
         return view('admin.aluno', compact('cursos'));
     }
@@ -40,6 +46,7 @@ class AlunoController extends Controller
             $idaluno = DB::table('users')->insertGetId([
                 'name' => $nome,
                 'email' => $email,
+                'email_verified_at' => now(),
                 'role' => 3,
                 'password' => Hash::make($password)
             ]);

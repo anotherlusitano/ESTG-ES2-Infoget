@@ -115,6 +115,15 @@ class DisciplinasController extends Controller
         }        
     }
 
+    public function index()
+    {
+        $user = Auth::user();
+        if ($user->role !== 1) {
+            return redirect()->intended(route('dashboard'));
+        }
+        return view('admin.disciplina');
+    }
+
     public function criarDisciplina(Request $request)
     {
         try {
