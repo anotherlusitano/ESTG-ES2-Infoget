@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import Login from './Login'; // Caminho para o componente de login
 import { MemoryRouter } from 'react-router-dom'; // Para simular rotas se necessário
+//teste
 
 describe('Página de Login', () => {
     test('verifica se os elementos principais aparecem', () => {
