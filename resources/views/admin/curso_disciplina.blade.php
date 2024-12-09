@@ -61,6 +61,25 @@
             height: 32px;
             fill: white;
         }
+        .logout-link {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: white; 
+        }
+        .logout-link svg {
+            width: 50px;
+            height: 50px;
+            fill: white;
+        }
     </style>
 </head>
 <body>
@@ -69,6 +88,15 @@
             <path stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
         </svg>
     </a>
+    <form method="POST" action="{{ route('logout') }}" style="position: absolute; top: 20px; right: 20px;">
+        @csrf
+        <button type="submit" class="logout-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" className="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                <path fillRule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+                <path fillRule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+            </svg>
+        </button>
+    </form>
     <div class="form-container">
         <h1>Associar Disciplina ao Curso</h1>
         <form method="POST" action="{{url('/admin/curso_disciplina/associarDisciplinaCurso')}}">
